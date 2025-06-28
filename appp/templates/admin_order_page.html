@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div style="margin: 20px;background-color: rgb(0, 0, 0);width: fit-content;color: white;">
+        <p>user id:{{user.user_id}}</p>
+        <p>user name:{{user.username}}</p>
+        <p>user_address:{{cantact.user_address}}</p>
+        <p>user_post_cod:{{cantact.user_post_cod}}</p>
+        <p>user_phone:{{cantact.user_phone_num}}</p>
+    </div>
+    
+    {% for order in orders %}
+        {% if order.pay=='True' %}
+        <div style="margin: 20px;background-color: rgb(0, 0, 0);width: fit-content;color: white;">
+            <p>item name:{{order.item_name}}</p>
+            <p>item number want:{{order.number_of_item_want}}</p>
+            <p>item price:{{order.item_price}}</p>
+            <p>order price:{{order.number_of_item_want*order.item_price}}</p>
+        </div>
+        {% endif %}
+    {% endfor %}
+    <a href="/send/{{user.user_id}}">ارسال کردم</a>
+</body>
+</html>

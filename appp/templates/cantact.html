@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novin</title>
+    <link rel="icon" type="image/x-icon" href="/home/tahrirno/novinfolder/files/pen.svg">
+</head>
+<style>
+    @font-face {
+        font-family: Novin_font;
+        src: url('/home/tahrirno/novinfolder/files/font_persian.ttf');
+    }
+    @keyframes div {
+        from{
+            box-shadow: 2px 2px 5px rgb(122, 122, 122);
+        }
+        to{
+            box-shadow: none;
+        }
+    }
+    @keyframes form {
+        from{
+        color: #8e7dbe;
+        background-color: #f4f8d3;
+        }
+        to{
+            color: #f4f8d3;
+            background-color: #8e7dbe;
+        }
+    }
+    body{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 0;
+        margin-top: 97.333px !important;
+        padding: 0;
+        font-family: Novin_font;
+        font-weight: bold;
+        user-select: none;
+        direction: rtl;
+        background-color: #8e7dbe27;
+    }
+
+/* novin icon css */
+
+    header#header_redirect{
+        background-color: #fdffe9;
+        position: fixed;    
+        right: 0;
+        left: 0;
+        top: 0;
+        box-shadow: 3px 3px 10px rgb(122, 122, 122);
+    }
+    div#div_redirect{
+        float: right;
+        display: block;
+    }
+    a#a_redirect{
+        display:inline-block;
+        width: 170px;
+        height: 55px;
+        padding: 5px;
+        background-color: #8e7dbe;
+        border: 4px solid #f7cfd8;
+        border-radius: 10px;
+        text-decoration: none;
+        margin: 7.5px;
+        padding-top: 10px;
+    }
+    img#img_redirect{
+        display: block;
+        width: 50px;
+        float: right;
+    }
+    p#p_redirect{
+        display: inline;
+        color: #f4f8d3;
+        font-size: 42px;
+    }
+
+    /* header icons css */
+
+    a.head{
+        display:inline-block;
+        width: 130px;
+        height: 43px;
+        padding: 5px;
+        background-color: #8e7dbe;
+        border: 4px solid #a6d6d6;
+        border-radius: 7px;
+        text-decoration: none;
+        float: left;
+        margin: 5px;
+        margin-top: 15px;
+        font-size: 26px;
+        text-align: center;
+        vertical-align: middle;
+        padding-top: 10px;
+        padding-bottom: 2px;
+        color: #f4f8d3;
+    }
+
+/* setting icon css */
+
+    button#btn_setting{
+        padding-top: 3px;
+        margin: 16px;
+        border-radius: 10px;
+        float: left;
+        cursor: pointer;
+        background-color: #8e7dbe;
+        border: 4px solid #a6d6d6;
+    }
+    li#li_setting{
+        position: absolute;
+        width: 200px;
+        list-style-type: none;
+        display: none;
+        background-color: #fce1e7;
+        box-shadow: 2px 2px 5px rgb(122, 122, 122);
+        border-radius: 7px;
+        border: 3px solid #a6d6d6;
+        left: 82.5px;
+        top: 13px;
+    }
+    @media (max-width: 390px){
+        button#btn_arrow{
+            margin-right: 5px;
+        }
+        button#btn_setting{
+            margin: 5px;
+            margin-top: 16px;
+        }
+        a#a_redirect{
+            margin: 0;
+            margin-top: 7.5px;
+            margin-bottom: 7.5px;
+        }
+    }
+    button#btn_setting:hover + li#li_setting{
+        display: block;
+    }
+    li#li_setting:hover{
+        display: block;
+    }
+    ol.ol_setting{
+        margin: 0;
+        padding: 0;
+        display: block;
+    }
+    a.a_setting{
+        text-decoration: none;
+        text-align: center;
+        color: #8e7dbe;
+        display: block;
+        padding: 12.5px 0px;
+        border-bottom: 2px solid #a6d6d6;
+        font-size: 18px;
+    }
+    a.a_setting:hover{
+        background-color: #f7cfd8;
+    }
+
+/* arrow icon in media css */
+
+    button#btn_arrow{
+        padding-top: 3px;
+        margin-top: 16px;
+        margin-right: 15px;
+        border-radius: 10px;
+        cursor: pointer;
+        border: 4px solid #a6d6d6;
+        background-color: #8e7dbe;
+        display: none;
+    }
+    img#img_arrow{
+        width: 50px;
+    }
+    li#li_arrow{
+        position: absolute;
+        width: 250px;
+        list-style-type: none;
+        display: none;
+        background-color: #fce1e7;
+        box-shadow: 3px 3px 10px rgb(48, 48, 48);
+        border-radius: 7px;
+        border: 3px solid #a6d6d6;
+        right: 50px;
+        top: 81px;
+    }
+    button#btn_arrow:hover + li#li_arrow{
+        display: list-item;
+    }
+    li#li_arrow:hover{
+        display: block;
+    }
+    ol.ol_arrow{
+        margin: 0;
+        padding: 0;
+        display: block;
+    }
+    a.a_arrow{
+        text-decoration: none;
+        text-align: center;
+        color: #8e7dbe;
+        display: block;
+        padding: 12.5px 0px;
+        border-bottom: 2px solid #a6d6d6;
+        font-size: 30px;
+    }
+
+
+
+    @media (max-width: 1014px){
+        a.head{
+            display: none;
+        }
+        button#btn_arrow{
+            display: inline-block;
+        }
+    }
+
+    
+    @media (max-width: 1197px){
+        li#li_setting{
+            top: 81px;
+            left: 5px;
+        }
+    }
+
+
+    @media (max-width: 390px){
+        button#btn_arrow{
+            margin-right: 5px;
+        }
+        button#btn_setting{
+            margin: 5px;
+            margin-top: 16px;
+        }
+        a#a_redirect{
+            margin: 0;
+            margin-top: 7.5px;
+            margin-bottom: 7.5px;
+        }
+    }
+    #for{
+        text-align: center;
+    }
+    #username{
+        display: block;
+        text-align: center;
+        display: inline;
+        padding: 10px 30px;
+        font-size: 20px;
+        font-family: Novin_font;
+        font-weight: bold;
+        border: 3px solid #a6d6d6;
+        background-color: #f7cfd8;
+        color: #8e7dbe !important;
+        margin: 5px;
+        border-radius: 10px;
+    }
+    #username::placeholder{
+        color: #8e7dbe;
+    }
+    .inputs::placeholder{
+        color: #8e7dbe;
+    }
+    .inputs{
+        color: #8e7dbe !important;
+        font-family: Novin_font;
+        font-weight: bold;
+        display: inline;
+        text-align: center;
+        padding: 12px 30px;
+        font-size: 20px;
+        background-color: #f7cfd8;
+        border: 3px solid #a6d6d6;
+        margin: 5px;
+        border-radius: 10px;
+    }
+    .inputs:focus{
+        all: unset;
+        font-family: Novin_font;
+        border-radius: 10px !important;
+        margin: 5px !important;
+        font-weight: bold;
+        display: inline;
+        text-align: center;
+        padding: 12px 30px;
+        font-size: 20px;
+        border: 3px solid #a6d6d6;
+        background-color: #f7cfd8;
+    }
+    .input_p{
+        width: 400px;
+        text-align: justify;
+        color: #8e7dbe;
+        font-family: Novin_font;
+        font-size: 20px;
+    }
+    #input_btn{
+        font-size: 20px;
+        font-weight: bold;
+        font-family: Novin_font;
+        padding: 10px 50px;
+        margin: 5px;
+        background-color: #f4f8d3;
+        border: 2px solid #a6d6d6;
+        cursor: pointer;
+        border-radius: 20px;
+        color: #8e7dbe;
+    }
+    #input_btn:hover{
+        animation-name: form;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
+    }
+</style>
+<body>
+    <header id="header_redirect">
+        <div id="div_redirect">
+            <a id="a_redirect" href="/home"><img id="img_redirect" src="../files/pen.svg"><p id="p_redirect">Novin</p></a> <!-- redirect to home page-->
+
+            <a style="width: 80px;" class="head" href="/item/book">کتاب</a>
+            <a style="width: 100px;" class="head" href="/item/gift">کادوئی</a>
+            <a class="head" href="/item/bag">کیف و کوله</a>
+            <a class="head" href="/item/Stationery">لوازم تحریر</a>
+            <a style="width: 131px;" class="head" href="/item/bottle">بطری و ماگ</a>
+        </div>
+
+
+        <button id="btn_arrow"><img id="img_arrow" src="../files/arrow.svg"></button>
+        <li id="li_arrow">
+            <ol class="ol_arrow"><a style="border-top: none;border-radius: 6.5px 6.5px 0px 0px;" class="a_arrow" href="/item/bottle">بطری و ماگ</a></ol>
+            <ol class="ol_arrow"><a class="a_arrow" href="/item/Stationery">لوازم تحریر</a></ol>
+            <ol class="ol_arrow"><a class="a_arrow" href="/item/gift">کادوئی</a></ol>
+            <ol class="ol_arrow"><a class="a_arrow" href="/item/books">کتاب</a></ol>
+            <ol class="ol_arrow"><a style="border-bottom: none;border-radius: 0px 0px 6.5px 6.5px;" class="a_arrow" href="/item/bag">کیف و کوله</a></ol>
+        </li>
+
+
+        <button id="btn_setting"><img  src="../files/setting.svg"></button>
+        <li id="li_setting">
+            {% if username=='False' %}
+                <ol class="ol_setting"><a style="border-top: none;border-radius: 6.5px 6.5px 0px 0px;" class="a_setting" href="/singin">ثبت نام</a></ol>
+                <ol class="ol_setting"><a class="a_setting" href="/login">ورود</a></ol>
+            {% else %}
+                <ol class="ol_setting"><a style="border-top: none;border-radius: 6.5px 6.5px 0px 0px;" class="a_setting" href="#">{{username}}</a></ol>
+                <ol class="ol_setting"><a style="border-top: none;border-radius: 6.5px 6.5px 0px 0px;" class="a_setting" href="/orders">سبد خرید</a></ol>
+                <ol class="ol_setting"><a style="border-top: none;border-radius: 6.5px 6.5px 0px 0px;" class="a_setting" href="/logout">خروج</a></ol>
+            {% endif %}
+            <ol class="ol_setting"><a style="border-bottom: none;border-radius: 0px 0px 6.5px 6.5px;" class="a_setting" href="/call_us">تماس با ما</a></ol>
+        </li>
+    </header>
+    <form id="for" action="/cantact" method="POST" autocomplete="off">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <p class="input_p">!!!!   لطفا ادرس را با استان و شهر مورد نظر شرح دهید در غیر این صورت بسته به مکان اشتباه فرستاده میشود</p>
+        <input type="text" id="username" name="dis" placeholder="{{user.username}}" disabled>
+        <br>
+        {% if cantact=='False' %}
+            <input class="inputs" type="tel" pattern="09[0-9]{9}" name="phone" placeholder="شماره موبایل">
+            <br>
+            <input class="inputs" type="text" name="address" placeholder="ادرس">
+            <br>
+            <input class="inputs" type="number" name="post_cod" placeholder="کد پستی">
+            <br>
+        {% else %}
+            <input class="inputs" type="tel" pattern="09[0-9]{9}" name="phone" placeholder="شماره موبایل">
+            <br>
+            <input class="inputs" type="text" name="address" placeholder="ادرس" value="{{cantact.user_address}}">
+            <br>
+            <input class="inputs" type="number" name="post_cod" placeholder="کد پستی" value="{{cantact.user_post_cod}}">
+            <br>
+        {% endif %}
+
+        <input id="input_btn" type="submit" value="پرداخت">
+        <p class="input_p">!!!! با توجه کاربر گرامی هزینه ارسال حضوری میباسد و شما در صفحه بعد فقط هزینه کالا ها را پرداخت خواهید کرد</p>
+    </form>
+</body>
+</html>

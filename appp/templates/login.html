@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Novin</title>
+    <link rel="icon" type="image/x-icon" href=/home/tahrirno/novinfolder/files/pen.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<style>
+    
+    @font-face {
+        font-family: Novin_font;
+        src: url('/home/tahrirno/novinfolder/files/font_persian.ttf');
+    }
+    body{
+        margin: 0;
+        padding: 0;
+        font-family: Novin_font;
+        font-weight: bold;
+        user-select: none;
+        direction: rtl;
+        margin-top: 150px;
+        background-color: #8e7dbe27;
+    }
+
+/* novin icon css */
+
+    header#header_redirect{
+        background-color: #f4f8d38a;
+        position: fixed;    
+        right: 0;
+        left: 0;
+        top: 0;
+        box-shadow: 3px 3px 10px rgb(122, 122, 122);
+    }
+    div#div_redirect{
+        float: right;
+        display: block;
+    }
+    a#a_redirect{
+        display:inline-block;
+        width: 170px;
+        height: 55px;
+        padding: 5px;
+        background-color: #8e7dbe;
+        border: 4px solid #f7cfd8;
+        border-radius: 10px;
+        text-decoration: none;
+        margin: 7.5px;
+        padding-top: 10px;
+    }
+    img#img_redirect{
+        display: block;
+        width: 50px;
+        float: right;
+    }
+    p#p_redirect{
+        display: inline;
+        color: #f4f8d3;
+        font-size: 42px;
+    }
+
+    /* header icons css */
+
+    a.head{
+        display:inline-block;
+        width: 130px;
+        height: 43px;
+        padding: 5px;
+        background-color: #8e7dbe;
+        border: 4px solid #a6d6d6;
+        border-radius: 7px;
+        text-decoration: none;
+        float: left;
+        margin: 5px;
+        margin-top: 15px;
+        font-size: 26px;
+        text-align: center;
+        vertical-align: middle;
+        padding-top: 10px;
+        padding-bottom: 2px;
+        color: #f4f8d3;
+    }
+
+/* setting icon css */
+
+    button#btn_setting{
+        padding-top: 3px;
+        margin: 16px;
+        border-radius: 10px;
+        float: left;
+        cursor: pointer;
+        background-color: #8e7dbe;
+        border: 4px solid #a6d6d6;
+    }
+    li#li_setting{
+        position: absolute;
+        width: 200px;
+        list-style-type: none;
+        display: none;
+        background-color: #fce1e7;
+        box-shadow: 3px 3px 10px rgb(48, 48, 48);
+        border-radius: 7px;
+        border: 3px solid #a6d6d6;
+        left: 82.5px;
+        top: 13px;
+    }
+    button#btn_setting:hover + li#li_setting{
+        display: block;
+    }
+    li#li_setting:hover{
+        display: block;
+    }
+    ol.ol_setting{
+        margin: 0;
+        padding: 0;
+        display: block;
+    }
+    a.a_setting{
+        text-decoration: none;
+        text-align: center;
+        color: #8e7dbe;
+        display: block;
+        padding: 12.5px 0px;
+        border-bottom: 2px solid #a6d6d6;
+        font-size: 18px;
+    }
+    a.a_setting:hover{
+        background-color: #f7cfd8;
+    }
+
+/* arrow icon in media css */
+
+    button#btn_arrow{
+        padding-top: 3px;
+        margin-top: 16px;
+        margin-right: 15px;
+        border-radius: 10px;
+        cursor: pointer;
+        border: 4px solid #a6d6d6;
+        background-color: #8e7dbe;
+        display: none;
+    }
+    img#img_arrow{
+        width: 50px;
+    }
+    li#li_arrow{
+        position: absolute;
+        width: 250px;
+        list-style-type: none;
+        display: none;
+        background-color: #fce1e7;
+        box-shadow: 3px 3px 10px rgb(48, 48, 48);
+        border-radius: 7px;
+        border: 3px solid #a6d6d6;
+        right: 50px;
+        top: 81px;
+    }
+    button#btn_arrow:hover + li#li_arrow{
+        display: list-item;
+    }
+    li#li_arrow:hover{
+        display: block;
+    }
+    ol.ol_arrow{
+        margin: 0;
+        padding: 0;
+        display: block;
+    }
+    a.a_arrow{
+        text-decoration: none;
+        text-align: center;
+        color: #8e7dbe;
+        display: block;
+        padding: 12.5px 0px;
+        border-bottom: 2px solid #a6d6d6;
+        font-size: 30px;
+    }
+    @media (max-width: 1014px){
+        a.head{
+            display: none;
+        }
+        button#btn_arrow{
+            display: inline-block;
+        }
+    }
+    @media (max-width: 1197px){
+        li#li_setting{
+            top: 81px;
+            left: 5px;
+        }
+    }
+    @media (max-width: 390px){
+        button#btn_arrow{
+            margin-right: 5px;
+        }
+        button#btn_setting{
+            margin: 5px;
+            margin-top: 16px;
+        }
+        a#a_redirect{
+            margin: 0;
+            margin-top: 7.5px;
+            margin-bottom: 7.5px;
+        }
+    }
+    #form{
+        margin-left: 40%;
+        margin-right: 40%;
+        position: relative;
+    }
+    #username::placeholder{
+        font-family: novin_font;
+        font-weight: bold;
+        color: #8e7dbe;
+    }
+    #password::placeholder{
+        font-family: novin_font;
+        font-weight: bold;
+        color: #8e7dbe;
+    }
+    input, select, textarea{
+        color: #8e7dbe;
+        font-family: novin_font;
+        font-weight: bold;
+    }
+    @media (max-width: 390px){
+        button#btn_arrow{
+            margin-right: 5px;
+        }
+        button#btn_setting{
+            margin: 5px;
+            margin-top: 16px;
+        }
+        a#a_redirect{
+            margin: 0;
+            margin-top: 7.5px;
+            margin-bottom: 7.5px;
+        }
+    }
+    #username{
+        font-size: 20px;
+        border: 4px solid #a6d6d6;
+        height: 50px;
+        width: 300px;
+        border-radius: 10px;
+        text-align: center;
+        background-color: #f4f8d3;
+    }
+    #password{
+        font-size: 20px;
+        border: 4px solid #a6d6d6;
+        height: 50px;
+        width: 300px;
+        border-radius: 10px;
+        text-align: center;
+        margin-top: 5px;
+        background-color: #f4f8d3;
+    }
+    #submit{
+        font-size: 25px;
+        border: 4px solid #f7cfd8;
+        width: 150px;
+        height: 50px;
+        border-radius: 10px;
+        text-align: center;
+        margin-top: 20px;
+        background-color: #8e7dbe;
+        color: #f4f8d3;
+        font-family: novin_font;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    #singin{
+        display: block;
+        text-decoration: none;
+        font-size: 30px;
+        border: 4px solid #f7cfd8;
+        width: 120px;
+        height: 45px;
+        border-radius: 10px;
+        text-align: center;
+        margin-top: 24.5px;
+        background-color: #8e7dbe;
+        color: #f4f8d3;
+        font-family: novin_font;
+        font-weight: bold;
+        cursor: pointer;
+        position: absolute;
+        right: 180px;
+        top:206px;
+    }
+    #form_id{
+        font-size: 40px;
+        margin-right: 117px;
+        display: block;
+        width: 200px;
+        color: #ff7a97;
+    }
+    p#jinja{
+        color: red;
+        margin-right: 10px;
+        width: 200px;
+    }
+    .inp:focus{all: unset;}
+</style>
+<body>
+    <header id="header_redirect">
+        <div id="div_redirect">
+            <a id="a_redirect" href="/home"><img id="img_redirect" src="../files/pen.svg"><p id="p_redirect">Novin</p></a> <!-- redirect to home page-->
+
+            <a style="width: 80px;" class="head" href="/item/books">کتاب</a>
+            <a style="width: 100px;" class="head" href="/item/gift">کادوئی</a>
+            <a class="head" href="/item/bag">کیف و کوله</a>
+            <a class="head" href="/item/Stationery">لوازم تحریر</a>
+            <a style="width: 131px;" class="head" href="/item/bottle">بطری و ماگ</a>
+        </div>
+
+
+        <button id="btn_arrow"><img id="img_arrow" src="../files/arrow.svg"></button>
+        <li id="li_arrow">
+            <ol class="ol_arrow"><a style="border-top: none;border-radius: 6.5px 6.5px 0px 0px;" class="a_arrow" href="/item/bottle">بطری و ماگ</a></ol>
+            <ol class="ol_arrow"><a class="a_arrow" href="/item/Stationery">لوازم تحریر</a></ol>
+            <ol class="ol_arrow"><a class="a_arrow" href="/item/gift">کادوئی</a></ol>
+            <ol class="ol_arrow"><a class="a_arrow" href="/item/books">کتاب</a></ol>
+            <ol class="ol_arrow"><a style="border-bottom: none;border-radius: 0px 0px 6.5px 6.5px;" class="a_arrow" href="/item/bag">کیف و کوله</a></ol>
+        </li>
+
+
+        <button id="btn_setting"><img  src="../files/setting.svg"></button>
+        <li id="li_setting">
+            {% if username=='False' %}
+                <ol class="ol_setting"><a style="border-top: none;border-radius: 6.5px 6.5px 0px 0px;" class="a_setting" href="/singin">ثبت نام</a></ol>
+                <ol class="ol_setting"><a class="a_setting" href="/login">ورود</a></ol>
+            {% else %}
+                <ol class="ol_setting"><a style="border-top: none;border-radius: 6.5px 6.5px 0px 0px;" class="a_setting" href="/ptofile">{{username}}</a></ol>
+                <ol class="ol_setting"><a style="border-top: none;border-radius: 6.5px 6.5px 0px 0px;" class="a_setting" href="/orders">سبد خرید</a></ol>
+                <ol class="ol_setting"><a style="border-top: none;border-radius: 6.5px 6.5px 0px 0px;" class="a_setting" href="/logout">خروج</a></ol>
+            {% endif %}
+            <ol class="ol_setting"><a style="border-bottom: none;border-radius: 0px 0px 6.5px 6.5px;" class="a_setting" href="/call_us">تماس با ما</a></ol>
+        </li>
+    </header>
+    <form id="form" action="#" autocomplete="off" method="POST">
+        <p id="form_id">ورود</p>
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <input type="text" id="username" name="username" maxlength="20" placeholder="نام کاربری" autofocus>
+        <input type="password" id="password" name="password" maxlength="20" placeholder="رمز عبور" autofocus>
+        <input type="submit" id="submit" value="ورود">
+        {% if item=='False' %}
+            <a id="singin" href="/singin">یا ثبت نام</a>
+        {% endif %}
+        {% if item=='True' %}
+            <a id="singin" href="/-singin-/{{string}}">یا ثبت نام</a>
+        {% endif %}
+        {% if login=='False' %}
+            <p id="jinja">رمز عبور نادرست است</p>
+        {% endif %}
+        {% if sesion=='False' %}
+            <p id="jinja">لطفا از حساب کابری قبلی خارج شوید و بعد وارد حساب جدید شوید</p>
+        {% endif %}
+    </form>
+</body>
+</html>

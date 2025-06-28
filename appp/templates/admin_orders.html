@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Novin</title>
+    <link rel="icon" type="image/x-icon" href="../files/pen.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div>
+        {% for user in users %}
+            {% if user.order_bool=='True' %}
+                <a style="background-color: aqua; display: block;width: fit-content;" href="/admin-order-page/{{user.user_id}}">
+                    <p>{{user.user_id}}</p>
+                    <p>{{user.username}}</p>
+                </a>
+            {% endif %}
+        {% endfor %}
+    </div>
+</body>
+</html>

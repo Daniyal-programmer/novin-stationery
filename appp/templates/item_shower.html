@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="/home/tahrirno/novinfolder/files/pen.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novin</title>
+</head>
+<style>
+    @font-face {
+        font-family: Novin_font;
+        src: url('/home/tahrirno/novinfolder/files/font_persian.ttf');
+    }
+    @keyframes div {
+        from{
+            color: #fdffee;
+            background-color : #8e7dbe;
+            border: 3px solid #a6d6d6;
+        }
+        to{
+            color : #8e7dbe;
+            background-color: #fdffee;
+            border: 3px solid #a6d6d6;
+        }
+    }
+    body{
+        background-color: #ffffff;
+        margin: 0;
+        margin-top: 97.333px;
+        padding: 0;
+        font-family: Novin_font;
+        font-weight: bold;
+        user-select: none;
+        direction: rtl;
+    }
+
+/* novin icon css */
+
+    header#header_redirect{
+        background-color: #f4f8d38a;
+        position: fixed;    
+        right: 0;
+        left: 0;
+        top: 0;
+        box-shadow: 3px 3px 10px rgb(122, 122, 122);
+    }
+    div#div_redirect{
+        float: right;
+        display: block;
+    }
+    a#a_redirect{
+        display:inline-block;
+        width: 170px;
+        height: 55px;
+        padding: 5px;
+        background-color: #8e7dbe;
+        border: 4px solid #f7cfd8;
+        border-radius: 10px;
+        text-decoration: none;
+        margin: 7.5px;
+        padding-top: 10px;
+    }
+    img#img_redirect{
+        display: block;
+        width: 50px;
+        float: right;
+    }
+    p#p_redirect{
+        display: inline;
+        color: #f4f8d3;
+        font-size: 42px;
+    }
+
+    /* header icons css */
+
+    a.head{
+        display:inline-block;
+        width: 130px;
+        height: 43px;
+        padding: 5px;
+        background-color: #8e7dbe;
+        border: 4px solid #a6d6d6;
+        border-radius: 7px;
+        text-decoration: none;
+        float: left;
+        margin: 5px;
+        margin-top: 15px;
+        font-size: 26px;
+        text-align: center;
+        vertical-align: middle;
+        padding-top: 10px;
+        padding-bottom: 2px;
+        color: #f4f8d3;
+    }
+
+/* setting icon css */
+
+    button#btn_setting{
+        padding-top: 3px;
+        margin: 16px;
+        border-radius: 10px;
+        float: left;
+        cursor: pointer;
+        background-color: #8e7dbe;
+        border: 4px solid #a6d6d6;
+    }
+    li#li_setting{
+        position: absolute;
+        width: 200px;
+        list-style-type: none;
+        display: none;
+        background-color: #fce1e7;
+        box-shadow: 3px 3px 10px rgb(48, 48, 48);
+        border-radius: 7px;
+        border: 3px solid #a6d6d6;
+        left: 82.5px;
+        top: 13px;
+    }
+    button#btn_setting:hover + li#li_setting{
+        display: block;
+    }
+    li#li_setting:hover{
+        display: block;
+    }
+    ol.ol_setting{
+        margin: 0;
+        padding: 0;
+        display: block;
+    }
+    a.a_setting{
+        text-decoration: none;
+        text-align: center;
+        color: #8e7dbe;
+        display: block;
+        padding: 12.5px 0px;
+        border-bottom: 2px solid #a6d6d6;
+        font-size: 18px;
+    }
+    a.a_setting:hover{
+        background-color: #f7cfd8;
+    }
+
+/* arrow icon in media css */
+
+    button#btn_arrow{
+        padding-top: 3px;
+        margin-top: 16px;
+        margin-right: 15px;
+        border-radius: 10px;
+        cursor: pointer;
+        border: 4px solid #a6d6d6;
+        background-color: #8e7dbe;
+        display: none;
+    }
+    img#img_arrow{
+        width: 50px;
+    }
+    li#li_arrow{
+        position: absolute;
+        width: 250px;
+        list-style-type: none;
+        display: none;
+        background-color: #fce1e7;
+        box-shadow: 3px 3px 10px rgb(48, 48, 48);
+        border-radius: 7px;
+        border: 3px solid #a6d6d6;
+        right: 50px;
+        top: 81px;
+    }
+    button#btn_arrow:hover + li#li_arrow{
+        display: list-item;
+    }
+    li#li_arrow:hover{
+        display: block;
+    }
+    ol.ol_arrow{
+        margin: 0;
+        padding: 0;
+        display: block;
+    }
+    a.a_arrow{
+        text-decoration: none;
+        text-align: center;
+        color: #8e7dbe;
+        display: block;
+        padding: 12.5px 0px;
+        border-bottom: 2px solid #a6d6d6;
+        font-size: 30px;
+    }
+    @media (max-width: 390px){
+        button#btn_arrow{
+            margin-right: 5px;
+        }
+        button#btn_setting{
+            margin: 5px;
+            margin-top: 16px;
+        }
+        a#a_redirect{
+            margin: 0;
+            margin-top: 7.5px;
+            margin-bottom: 7.5px;
+        }
+    }
+
+
+
+    @media (max-width: 1014px){
+        a.head{
+            display: none;
+        }
+        button#btn_arrow{
+            display: inline-block;
+        }
+    }
+
+    
+    @media (max-width: 1197px){
+        li#li_setting{
+            top: 81px;
+            left: 5px;
+        }
+    }
+
+
+    @media (max-width: 390px){
+        button#btn_arrow{
+            margin-right: 5px;
+        }
+        button#btn_setting{
+            margin: 5px;
+            margin-top: 16px;
+        }
+        a#a_redirect{
+            margin: 0;
+            margin-top: 7.5px;
+            margin-bottom: 7.5px;
+        }
+    }
+    #div{
+        margin-top: 100px;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+    #div_img{
+        width: 400px;
+        border: 2px solid rgb(179, 179, 179);
+        border-radius: 20px;
+        float: right;
+        margin-right: 10px;
+    }
+    #div_p{
+        float: left;
+        font-size: 40px;
+        margin-left: 190px;
+        color: #8e7dbe;
+    }
+    #div_p2{
+        float: left;
+        font-size: 40px;
+        margin-left: 190px;
+        color: #8e7dbe;
+    }
+    #div_p3{
+        float: left;
+        font-size: 25px;
+        margin-left: 140px;
+        color: #8e7dbe;
+    }
+    #div_p4{
+        float: left;
+        font-size: 20px;
+        margin-left: 190px;
+        width: 300px;
+        color: #8e7dbe;
+    }
+    #div_a{
+        float: left;
+        font-size: 20px;
+        margin-left: 220px;
+        margin-top: 100px;
+        text-decoration: none;
+        color: #fdffee;
+        background-color : #8e7dbe;
+        border: 3px solid #a6d6d6;
+        border-radius: 10px;
+        padding: 20px 150px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    #div_a:hover{
+        animation-name: div;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
+    }
+    @media (max-width:1252px) {
+        
+        #div_a{
+            margin: 20px;
+        }
+        #div_p{
+            margin: 40px;
+            height: fit-content;
+            display: block;
+            width: fit-content;
+        }
+        #div_p2{
+            margin: 40px;
+            height: fit-content;
+            display: block;
+            width: fit-content;
+        }
+        #div_p3{
+            margin: 40px;
+            height: fit-content;
+            display: block;
+            width: fit-content;
+            float: right;
+        }
+        #div_p4{
+            margin: 40px;
+            height: fit-content;
+            display: block;
+            width: 300px;
+            float: right;
+        }
+    }
+    
+    
+    @media (max-width:995px) {
+        #div_a{
+            margin: 20px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        #div_p{
+            margin: 40px;
+            height: fit-content;
+            display: block;
+            width: fit-content;
+            float: right;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        #div_p2{
+            margin: 40px;
+            height: fit-content;
+            display: block;
+            width: fit-content;
+            float: right;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        #div_p3{
+            margin: 40px;
+            height: fit-content;
+            display: block;
+            width: fit-content;
+            float: right;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        #div_p4{
+            margin: 40px;
+            height: fit-content;
+            display: block;
+            width: 300px;
+            float: right;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+    }
+    @media (max-width:955px) {
+        #div_a{
+            padding-right: 50px;
+            padding-left: 50px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            float: right;
+        }
+    }
+    @media (max-width:815px) {
+        #div_img{
+            text-align: center;
+            margin: 20px;
+        }
+        #div_a{
+            padding: 20px 150px;
+            margin: 0;
+        }
+        #div_p{
+            text-align: center;
+            width: 100%;
+        }
+        #div_p2{
+            text-align: center;
+            width: 100%;
+        }
+        #div_p3{
+            text-align: center;
+            width: 100%;
+        }
+        #div_p4{
+            text-align: center;
+            width: 100%;
+        }
+    }
+    @media (max-width:498px) {
+        #div_a{
+            padding-right: 50px;
+            padding-left: 50px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            margin: 0;
+        }
+    }
+
+</style>
+<body>
+    <header id="header_redirect">
+        <div id="div_redirect">
+            <a id="a_redirect" href="/home"><img id="img_redirect" src="../files/pen.svg"><p id="p_redirect">Novin</p></a> <!-- redirect to home page-->
+
+            <a style="width: 80px;" class="head" href="/item/book">کتاب</a>
+            <a style="width: 100px;" class="head" href="/item/gift">کادوئی</a>
+            <a class="head" href="/item/bag">کیف و کوله</a>
+            <a class="head" href="/item/Stationery">لوازم تحریر</a>
+            <a style="width: 131px;" class="head" href="/item/bottle">بطری و ماگ</a>
+        </div>
+
+
+        <button id="btn_arrow"><img id="img_arrow" src="../files/arrow.svg"></button>
+        <li id="li_arrow">
+            <ol class="ol_arrow"><a style="border-top: none;border-radius: 6.5px 6.5px 0px 0px;" class="a_arrow" href="/item/bottle">بطری و ماگ</a></ol>
+            <ol class="ol_arrow"><a class="a_arrow" href="/item/Stationery">لوازم تحریر</a></ol>
+            <ol class="ol_arrow"><a class="a_arrow" href="/item/gift">کادوئی</a></ol>
+            <ol class="ol_arrow"><a class="a_arrow" href="/item/books">کتاب</a></ol>
+            <ol class="ol_arrow"><a style="border-bottom: none;border-radius: 0px 0px 6.5px 6.5px;" class="a_arrow" href="/item/bag">کیف و کوله</a></ol>
+        </li>
+
+
+        <button id="btn_setting"><img  src="../files/setting.svg"></button>
+        <li id="li_setting">
+            {% if username=='False' %}
+                <ol class="ol_setting"><a style="border-top: none;border-radius: 6.5px 6.5px 0px 0px;" class="a_setting" href="/singin">ثبت نام</a></ol>
+                <ol class="ol_setting"><a class="a_setting" href="/login">ورود</a></ol>
+            {% else %}
+                <ol class="ol_setting"><a style="border-top: none;border-radius: 6.5px 6.5px 0px 0px;" class="a_setting" href="/ptofile">{{username}}</a></ol>
+                <ol class="ol_setting"><a style="border-top: none;border-radius: 6.5px 6.5px 0px 0px;" class="a_setting" href="/orders">سبد خرید</a></ol>
+                <ol class="ol_setting"><a style="border-top: none;border-radius: 6.5px 6.5px 0px 0px;" class="a_setting" href="/logout">خروج</a></ol>
+            {% endif %}
+            <ol class="ol_setting"><a style="border-bottom: none;border-radius: 0px 0px 6.5px 6.5px;" class="a_setting" href="/call_us">تماس با ما</a></ol>
+        </li></header>
+        <div id="div">
+            <img style="margin-top: 50px;" id="div_img" src="{{item.image_address}}">
+            <p id="div_p">{{item.name}}</p>
+            <p id="div_p2">قیمت : {{item.price}}</p>
+            <p id="div_p3">تعداد موجود : {{item.number}}</p>
+            <pre id="div_p4">توضیحات : {{item.description}} </pre>
+            {% if item_num!='False' %}
+                {% if username=='False' %}
+                    <a id="div_a" href="/-login-/{{item.name}}">افزودن به سبد خرید</a>
+                {% else %}
+                    <a href="/add-order"><button id="div_a">افزودن به سبد خرید</button></a>
+                {% endif %}
+            {% endif %}
+        </div>
