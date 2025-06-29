@@ -30,14 +30,12 @@ body{
     background-color: #8e7dbe27;
 }
 
-/* novin icon css */
 
 header#header_redirect{
     background-color: #fdffe9;
-    position: fixed;    
-    right: 0;
-    left: 0;
+    position: fixed;
     top: 0;
+    width: 100%;
     box-shadow: 3px 3px 10px rgb(122, 122, 122);
 }
 div#div_redirect{
@@ -291,7 +289,7 @@ a.a_arrow{
 <body>
     <header id="header_redirect">
         <div id="div_redirect">
-            <a id="a_redirect" href="/home"><img id="img_redirect" src="/home/tahrirno/novinfolder/files/pen.svg"><p id="p_redirect">Novin</p></a> <!-- redirect to home page-->
+            <a id="a_redirect" href="/home"><img id="img_redirect" src="../files/pen.svg"><p id="p_redirect">Novin</p></a> <!-- redirect to home page-->
 
             <a style="width: 80px;" class="head" href="/item/book">کتاب</a>
             <a style="width: 100px;" class="head" href="/item/gift">کادوئی</a>
@@ -301,7 +299,7 @@ a.a_arrow{
         </div>
 
 
-        <button id="btn_arrow"><img id="img_arrow" src="/home/tahrirno/novinfolder/files/arrow.svg"></button>
+        <button id="btn_arrow"><img id="img_arrow" src="../files/arrow.svg"></button>
         <li id="li_arrow">
             <ol class="ol_arrow"><a style="border-top: none;border-radius: 6.5px 6.5px 0px 0px;" class="a_arrow" href="/item/bottle">بطری و ماگ</a></ol>
             <ol class="ol_arrow"><a class="a_arrow" href="/item/Stationery">لوازم تحریر</a></ol>
@@ -311,7 +309,7 @@ a.a_arrow{
         </li>
 
 
-        <button id="btn_setting"><img  src="/home/tahrirno/novinfolder/files/setting.svg"></button>
+        <button id="btn_setting"><img  src="../files/setting.svg"></button>
         <li id="li_setting">
             {% if username=='False' %}
                 <ol class="ol_setting"><a style="border-top: none;border-radius: 6.5px 6.5px 0px 0px;" class="a_setting" href="/singin">ثبت نام</a></ol>
@@ -324,7 +322,7 @@ a.a_arrow{
             <ol class="ol_setting"><a style="border-bottom: none;border-radius: 0px 0px 6.5px 6.5px;" class="a_setting" href="/call_us">تماس با ما</a></ol>
         </li>
     </header>
-    <img id="banner" src="/home/tahrirno/novinfolder/files/Banner.jpg" alt="NOVIN">
+    <img id="banner" src="../files/Banner.jpg" alt="NOVIN">
     <div id="div">
         {% for item in items %}
             {% if item.number!=0 %}

@@ -6,7 +6,7 @@ from sqlalchemy import ForeignKey
 import requests
 import os
 app = Flask(__name__)
-app.secret_key='fkmlbvkmdlbkmfglknmbportsyhj]-ezrsfghbwA$45t46355y13651835517658543646$%&%^^#$TGVFNJGHUYKDRGFVSDGfg'
+app.secret_key='fkmlbvkmdlbkmfglknmbportsyhj-ezrsfghbwA$45t46355y13651835517658543646$%&%^^#$TGVFNJGHUYKDRGFVSDGfg'
 app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+mysqlconnector://root:@127.0.0.1/flask"
 db = SQLAlchemy(app)
 csrf = CSRFProtect(app)
@@ -67,6 +67,11 @@ def home_redirect():
 @app.route('/home',methods=['GET','POST'])
 def home():
     if request.method=='GET':
+        orders=Orders.query.all()
+        timee=time.time()
+        for order in orders:
+            if timee - order.time >= 43200:
+                return redirect('/delete-order/'+str(order.id))
         if session.get('username'):
             items=Items.query.all()
             lenth=len(items)
@@ -86,9 +91,9 @@ def home():
 def call_us():
         if session.get('username'):
             user_num=str(session.get('username'))
-            return render_template('home.html',username=user_num)
+            return render_template('call_us.html',username=user_num)
         else:
-            return render_template('home.html',username='False')
+            return render_template('call_us.html',username='False')
 #----singin----
 
 @app.route('/-singin-/<string>',methods=['GET','POST'])
@@ -240,7 +245,7 @@ def admin_add_item():
             type = request.form['item_type']
             image = request.files['file']
             if image:
-                img_address = '/home/tahrirno/novinfolder/files/uploads/'+str(name)+'.jpg'
+                img_address = '../files/uploads/'+str(name)+'.jpg'
                 image.save('files/uploads/'+str(name)+'.jpg')
                 item=Items(name=name,price=price,number=number,type=type,image_address=img_address,description=description)
                 db.session.add(item)
@@ -415,10 +420,7 @@ def orders():
     user=User.query.filter(User.username==user_name).first_or_404()
     orders=Orders.query.filter(Orders.user_id==user.user_id).all()
     all_price=0
-    timee=time.time()
     for order in orders:
-        if timee - order.time >= 43200:
-            return redirect('/delete-order/'+str(order.id))
         order_price=order.item_price*order.number_of_item_want
         all_price=all_price+order_price
     if user.cantact_bool!=False:
