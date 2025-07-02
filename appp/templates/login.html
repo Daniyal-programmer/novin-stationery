@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Novin</title>
-    <link rel="icon" type="image/x-icon" href=/home/tahrirno/novinfolder/files/pen.svg">
+    <link rel="icon" type="image/x-icon" href="../files/pen.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <style>
     
     @font-face {
         font-family: Novin_font;
-        src: url('/home/tahrirno/novinfolder/files/font_persian.ttf');
+        src: url('../files/font_persian.ttf');
     }
     body{
+        position: relative;
         margin: 0;
         padding: 0;
         font-family: Novin_font;
@@ -29,6 +30,8 @@
         background-color: #f4f8d38a;
         position: fixed;  
         top: 0;
+        right: 0;
+        left: 0;
         width: 100%;
         box-shadow: 3px 3px 10px rgb(122, 122, 122);
     }
@@ -302,6 +305,27 @@
         width: 200px;
     }
     .inp:focus{all: unset;}
+    @media (max-width:345px){
+        img#img_arrow{
+            width: 40px;
+        }
+        img#img_setting{
+            width: 40px;
+        }
+        img#img_redirect{
+            width: 40px;
+            margin: 5px;
+            margin-top: 3px;
+        }
+        p#p_redirect{
+            font-size: 35px;
+            margin: 5px;
+        }
+        a#a_redirect{
+            width: fit-content;
+            height: fit-content;
+        }
+    }
 </style>
 <body>
     <header id="header_redirect">
@@ -326,7 +350,7 @@
         </li>
 
 
-        <button id="btn_setting"><img  src="../files/setting.svg"></button>
+        <button id="btn_setting"><img id="img_setting" src="../files/setting.svg"></button>
         <li id="li_setting">
             {% if username=='False' %}
                 <ol class="ol_setting"><a style="border-top: none;border-radius: 6.5px 6.5px 0px 0px;" class="a_setting" href="/singin">ثبت نام</a></ol>
