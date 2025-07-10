@@ -203,7 +203,7 @@
 
 
 
-    @media (max-width: 1014px){
+    @media (max-width: 1030px){
         a.head{
             display: none;
         }
@@ -327,8 +327,72 @@
             width: fit-content;
             height: fit-content;
         }
+        a.a_arrow{
+            font-size: 20px;
+        }
+        ol.ol_arrow{
+            width: 180px;
+        }
+        li#li_arrow{
+            width: 180px ;
+        }
     }
     .inp:focus{all: unset;}
+    button#btn_setting:active + li#li_setting{
+        display: block;
+    }
+    button#btn_arrow:active + li#li_arrow{
+        display: list-item;
+    }
+    @media (max-width:297px){
+        .div_div{
+            width: 190px;
+            margin-top: 0;
+        }
+        .div_img{
+            width: 152px;
+        }
+        .div_name{
+            font-size: 23px;
+        }
+        .div_number{
+            font-size: 18px;
+        }
+        .div_price{
+            font-size: 18px;
+        }
+        img#img_redirect{
+            margin-left: 0;
+            margin-right: 0;
+        }
+        button#btn_setting{
+            margin-right: 0;
+            margin-left: 2px;
+        }
+    }
+    @media (max-width:244px){
+        .div_div{
+            margin-right: 0;
+            margin-left: 0;
+        }
+    }
+    @media (max-width:197px){
+        .div_img{
+            width: 80.15%;
+        }
+        .div_div{
+            width: 76%;
+        }
+        .div_name{
+            font-size: 20px;
+        }
+        .div_number{
+            font-size: 15px;
+        }
+        .div_price{
+            font-size: 15px;
+        }
+    }
 </style>
 <body>
     <header id="header_redirect">
@@ -376,5 +440,11 @@
                 <p id="error">این تعداد موجود نیست</p>
             {% endif %}
         </form>
+    <script>
+        let page_width = window.innerWidth;
+        if (page_width<247){
+            document.getElementById('p_redirect').innerHTML='N';
+        }
+    </script>
 </body>
 </html>
