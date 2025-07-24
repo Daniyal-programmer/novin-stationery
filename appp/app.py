@@ -245,8 +245,8 @@ def admin_add_item():
             type = request.form['item_type']
             image = request.files['file']
             if image:
-                img_address = '../files/uploads/'+str(name)+'.jpg'
-                image.save('files/uploads/'+str(name)+'.jpg')
+                img_address = '../static/uploads/'+str(name)+'.jpg'
+                image.save('static/uploads/'+str(name)+'.jpg')
                 item=Items(name=name,price=price,number=number,type=type,image_address=img_address,description=description)
                 db.session.add(item)
                 db.session.commit()
@@ -300,7 +300,9 @@ def admin_delete_item():
             return redirect('/admin-page')
     else:
         return 'good bye'
-        
+@app.route('/admin')
+def admin_redirect():
+    return redirect('/admin-login')
 
 
 @app.route('/admin-orders')
