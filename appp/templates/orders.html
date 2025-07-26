@@ -7,6 +7,14 @@
     <link rel="icon" type="image/x-icon" href="../static/pen.svg">
 </head>
 <style>
+    @keyframes footer_novin {
+        from{
+            box-shadow: 3px 3px 5px #8e7dbe;
+        }
+        to{
+            box-shadow: none;
+        }
+    }
     @font-face {
         font-family: Novin_font;
         src: url('../static/font_persian.ttf');
@@ -625,6 +633,137 @@
             font-size: 15px;
         }
     }
+    div#footer{
+        background-color: #a6d6d6;
+        border-top: 2px dotted #8e7dbe;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        border-bottom: 4px dotted #f7cfd8;
+    }
+    p.footer_p{
+        font-size: 20px;
+        margin: 0;
+        margin-top: 40px;
+        color: #8e7dbe;
+        background-color: #f7cfd8;
+        padding: 10px 20px;
+        border-radius: 10px;
+        border: 2px solid #f4f8d3;
+    } 
+    div.footer_div{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+    }
+    a.footer_a{
+        color: #f7cfd8;
+        text-decoration: none;
+        cursor: pointer;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        width: 130.646px;
+        font-size: 17px;
+        text-align: center;
+        border-radius: 5px;
+        border: 2px dashed #f4f8d3;
+    }
+    a.footer_a:hover{
+        all: unset;
+        border-radius: 5px;
+        color: #8e7dbe;
+        text-decoration: none;
+        cursor: pointer;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        width: 130.646px;
+        font-size: 17px;
+        text-align: center;
+        border: 2px dashed #8e7dbe;
+    }
+    a.footer_a:active{
+        all: unset;
+        border-radius: 5px;
+        color: #8e7dbe;
+        text-decoration: none;
+        cursor: pointer;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        width: 130.646px;
+        font-size: 17px;
+        text-align: center;
+        border: 2px dashed #8e7dbe;
+    }
+    img.footer_img{
+        width: 100px;
+        margin: auto;
+        border-radius: 10px;
+        border: 3px dashed #f4f8d3;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .footer_novin{
+        color: #8e7dbe;
+        font-size: 25px;
+        margin: auto;
+        margin-bottom: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .footer_a_nov{
+        width: 191px;
+        margin-top: 20px!important;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        text-decoration: none;
+        background-color: #f7cfd8;
+        border-radius: 10px;
+        border: 3px dashed #f4f8d3;
+        box-shadow: 3px 3px 5px #8e7dbe;
+    }
+    .footer_a_nov:hover{
+        animation-name: footer_novin;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
+    }
+    .footer_novin_2{
+        color: #fce1e7;
+        width: 260px;
+        text-align: center;
+    }
+    .footer_b{
+        color: #8e7dbe;
+    }
+    @media (max-width:736px) {
+        div.footer_div{
+            margin: 0 !important;
+        }
+        div#footer{
+            justify-content: space-around;
+        }
+    }
+    @media (max-width:395px) {
+        .footer_a_nov{
+            margin-top: 20px;
+        }
+        #footer_div_1{
+            display: block !important;
+        }
+        #footer_div_2{
+            display: none;
+        }
+    }
 </style>
 <body>
     <header id="header_redirect">
@@ -722,6 +861,36 @@
             {% endfor %}
         </div>
     </div>
+    <footer>
+        <div id="footer">
+            <div id="footer_div_1" style="display: none;" class="footer_div">
+                <a class="footer_a_nov" href="/">
+                    <img class="footer_img" src="../static/pen.svg" alt="NOVIN">
+                    <p class="footer_novin" >لوازم تحریر نوین</p>
+                </a>
+                <p class="footer_novin_2" ><b class="footer_b"> خرید حضوری: </b>لردگان ، بلوار پاسداران ، رو به روی آموزش و پرورش ، لوازم تحریر نوین</p>
+            </div>
+            <div style="margin-right: 100px;" class="footer_div">
+                <p class="footer_p">محصولات</p>
+                <a class="footer_a" href="/item/bottle">بطری و ماگ</a>
+                <a class="footer_a" href="/item/Stationery">لوازم تحریر</a></ol>
+                <a class="footer_a" href="/item/gift">کادوئی</a></ol>
+                <a class="footer_a" href="/item/books">کتاب</a></ol>
+                <a class="footer_a" href="/item/bag">کیف و کوله</a>
+            </div>
+            <div id="footer_div_2" class="footer_div">
+                <a class="footer_a_nov" href="/">
+                    <img class="footer_img" src="../static/pen.svg" alt="NOVIN">
+                    <p class="footer_novin" >لوازم تحریر نوین</p>
+                </a>
+                <p class="footer_novin_2" ><b class="footer_b"> خرید حضوری: </b>لردگان ، بلوار پاسداران ، رو به روی آموزش و پرورش ، لوازم تحریر نوین</p>
+            </div>
+            <div style="margin-left: 100px;" class="footer_div">
+                <p class="footer_p">تماس با ما</p>
+                <a class="footer_a" style="width: 134.646px !important;" href="/call_us">09137034232</a>
+            </div>
+        </div>
+    </footer>
     <script>
         let recolor = (btn_id,div_id)=>{
             i=0
