@@ -11,7 +11,7 @@
         font-family: Novin_font;
         src: url('../static/font_persian.ttf');
     }
-    @keyframes div {
+    @keyframes div_2 {
         from{
             color: #fdffee;
             background-color : #8e7dbe;
@@ -21,6 +21,14 @@
             color : #8e7dbe;
             background-color: #fdffee;
             border: 3px solid #a6d6d6;
+        }
+    }
+    @keyframes div {
+        from{
+            box-shadow: 2px 2px 5px rgb(122, 122, 122);
+        }
+        to{
+            box-shadow: none;
         }
     }
     body{
@@ -38,7 +46,7 @@
 /* novin icon css */
 
     header#header_redirect{
-        background-color: #f4f8d38a; 
+        background-color: #fdffe9;
         position: fixed;
         top: 0;
         right: 0;
@@ -238,182 +246,99 @@
             margin-bottom: 7.5px;
         }
     }
-    #div{
-        margin-top: 100px;
-        margin-right: 10px;
-        margin-left: 10px;
+    #div_2{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin: auto;    
+        border-bottom: 3.5px dotted #f7cfd8;
+        padding-bottom: 50px;
     }
-    #div_img{
-        width: 400px;
-        border: 2px solid rgb(179, 179, 179);
+    @media (max-width:624px) {
+        #div_2{
+            padding-bottom: 30px !important;
+            justify-content: center;
+        }
+        #div_img_2{
+            margin-top: 20px !important;
+            margin-right: 0px !important;
+        }
+        #div_table{
+            margin-top: 20px !important;
+            margin-left: 0px !important;
+        }
+        #item_relations{
+            margin-top: 25px !important;
+        }
+        #div{
+            margin-top: 15px !important;
+        }
+    }
+    @media (min-width:624px) {
+        #div_img_2{
+            width: 350px !important;
+        }
+        #div{
+            margin-top: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+    #div_img_2{
+        width: 250px;
+        border: 3px dashed #a6d6d6;
+        margin-right: 30px;
         border-radius: 20px;
-        float: right;
-        margin-right: 10px;
     }
     #div_p{
-        float: left;
+        width: fit-content;
         font-size: 40px;
-        margin-left: 190px;
         color: #8e7dbe;
+        margin: auto;
+        margin-top: 20px;
     }
     #div_p2{
-        float: left;
+        margin: auto;
+        width: fit-content;
         font-size: 40px;
-        margin-left: 190px;
         color: #8e7dbe;
+        margin-top: 20px;
     }
     #div_p3{
-        float: left;
+        margin: auto;
+        width: fit-content;
         font-size: 25px;
-        margin-left: 140px;
         color: #8e7dbe;
+        margin-top: 20px;
     }
     #div_p4{
-        float: left;
+        margin: auto;
+        width: fit-content !important;
         font-size: 20px;
-        margin-left: 190px;
+        font-family: Novin_font;
         width: 300px;
+        margin-top: 20px;
         color: #8e7dbe;
     }
     #div_a{
-        float: left;
-        font-size: 20px;
-        margin-left: 220px;
-        margin-top: 100px;
+        margin-top: 10px !important;
+        font-family: Novin_font;
+        margin: auto;
+        font-size: 25px !important;
         text-decoration: none;
         color: #fdffee;
         background-color : #8e7dbe;
         border: 3px solid #a6d6d6;
         border-radius: 10px;
-        padding: 20px 150px;
+        padding: 15px 50px;
         font-size: 20px;
         cursor: pointer;
     }
     #div_a:hover{
-        animation-name: div;
+        animation-name: div_2;
         animation-duration: 0.5s;
         animation-fill-mode: forwards;
-    }
-    @media (max-width:1252px) {
-        
-        #div_a{
-            margin: 20px;
-        }
-        #div_p{
-            margin: 40px;
-            height: fit-content;
-            display: block;
-            width: fit-content;
-        }
-        #div_p2{
-            margin: 40px;
-            height: fit-content;
-            display: block;
-            width: fit-content;
-        }
-        #div_p3{
-            margin: 40px;
-            height: fit-content;
-            display: block;
-            width: fit-content;
-            float: right;
-        }
-        #div_p4{
-            margin: 40px;
-            height: fit-content;
-            display: block;
-            width: 300px;
-            float: right;
-        }
-    }
-    
-    
-    @media (max-width:995px) {
-        #div_a{
-            margin: 20px;
-            margin-top: 10px;
-            margin-bottom: 10px;
-        }
-        #div_p{
-            margin: 40px;
-            height: fit-content;
-            display: block;
-            width: fit-content;
-            float: right;
-            margin-top: 10px;
-            margin-bottom: 10px;
-        }
-        #div_p2{
-            margin: 40px;
-            height: fit-content;
-            display: block;
-            width: fit-content;
-            float: right;
-            margin-top: 10px;
-            margin-bottom: 10px;
-        }
-        #div_p3{
-            margin: 40px;
-            height: fit-content;
-            display: block;
-            width: fit-content;
-            float: right;
-            margin-top: 10px;
-            margin-bottom: 10px;
-        }
-        #div_p4{
-            margin: 40px;
-            height: fit-content;
-            display: block;
-            width: 300px;
-            float: right;
-            margin-top: 5px;
-            margin-bottom: 5px;
-        }
-    }
-    @media (max-width:955px) {
-        #div_a{
-            padding-right: 50px;
-            padding-left: 50px;
-            padding-top: 10px;
-            padding-bottom: 10px;
-            float: right;
-        }
-    }
-    @media (max-width:815px) {
-        #div_img{
-            text-align: center;
-            margin: 20px;
-        }
-        #div_a{
-            padding: 20px 150px;
-            margin: 0;
-        }
-        #div_p{
-            text-align: center;
-            width: 100%;
-        }
-        #div_p2{
-            text-align: center;
-            width: 100%;
-        }
-        #div_p3{
-            text-align: center;
-            width: 100%;
-        }
-        #div_p4{
-            text-align: center;
-            width: 100%;
-        }
-    }
-    @media (max-width:498px) {
-        #div_a{
-            padding-right: 50px;
-            padding-left: 50px;
-            padding-top: 10px;
-            padding-bottom: 10px;
-            margin: 0;
-        }
     }
     @media (max-width:345px){
         img#img_arrow{
@@ -453,22 +378,6 @@
         display: list-item;
     }
     @media (max-width:297px){
-        .div_div{
-            width: 190px;
-            margin-top: 0;
-        }
-        .div_img{
-            width: 152px;
-        }
-        .div_name{
-            font-size: 23px;
-        }
-        .div_number{
-            font-size: 18px;
-        }
-        .div_price{
-            font-size: 18px;
-        }
         img#img_redirect{
             margin-left: 0;
             margin-right: 0;
@@ -478,11 +387,17 @@
             margin-left: 2px;
         }
     }
-    @media (max-width:244px){
-        .div_div{
-            margin-right: 0;
-            margin-left: 0;
-        }
+    #div_table{
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        margin-left: 30px;
+        min-width: 309.208px;
+        border-radius: 10px;
+        border: 3px dashed #a6d6d6;
+        padding: 10px;
+        margin-top: 50px;
     }
     @media (max-width:197px){
         .div_img{
@@ -501,7 +416,94 @@
             font-size: 15px;
         }
     }
-
+    @media (max-width:244px){
+        .div_div{
+            margin-right: 0;
+            margin-left: 0;
+        }
+    }
+    @media (max-width:297px){
+        .div_div{
+            width: 190px;
+            margin-top: 0;
+        }
+        .div_img{
+            width: 152px;
+        }
+        .div_name{
+            font-size: 23px;
+        }
+        .div_number{
+            font-size: 18px;
+        }
+        .div_price{
+            font-size: 18px;
+        }
+    }
+    #div{
+        margin-top: 25px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .div_div{
+        background-color: #f4f8d38a;
+        margin: 20px;
+        border: 3px solid #a6d6d6;
+        border-radius: 20px;
+        width: 250px;
+        display: block;
+        text-decoration: none;
+        color: #8e7dbe;
+        box-shadow: 3px 3px 10px rgb(122, 122, 122);
+    }
+    .div_div:hover{
+        animation-name: div;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
+    }
+    .div_img{
+        margin: 10%;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        width: 200px;
+        border-radius: 10px;
+        border: 2px dashed #a6d6d6;
+    }
+    .div_name{
+        text-align: center;
+        font-size: 25px;
+        border-bottom: 2px solid #f7cfd8;
+        border-top: 2px solid #f7cfd8;
+        margin: 0;
+        padding: 10px 0px;
+    }
+    .div_number{
+        text-align: center;
+        font-size: 20px;
+        border-bottom: 2px solid #f7cfd8;
+        margin: 0;
+        padding: 10px 0px;
+    }
+    .div_price{
+        text-align: center;
+        font-size: 20px;
+        margin: 0;
+        padding: 10px 0px;
+    }
+    #item_relations{
+        width: fit-content;
+        margin: auto;
+        font-size: 27px;
+        margin-top: 30px;
+        color: #8e7dbe;
+    }
+    #li_arrow{
+        z-index: 20;
+    }
+    #li_setting{
+        z-index: 20;
+    }
 </style>
 <body>
     <header id="header_redirect">
@@ -532,14 +534,16 @@
                 <ol class="ol_setting"><a style="border-top: none;border-radius: 6.5px 6.5px 0px 0px;" class="a_setting" href="/singin">ثبت نام</a></ol>
                 <ol class="ol_setting"><a class="a_setting" href="/login">ورود</a></ol>
             {% else %}
-                <ol class="ol_setting"><a style="border-top: none;border-radius: 6.5px 6.5px 0px 0px;" class="a_setting" href="/ptofile">{{username}}</a></ol>
+                <ol class="ol_setting"><a style="border-top: none;border-radius: 6.5px 6.5px 0px 0px;" class="a_setting" href="#">{{username}}</a></ol>
                 <ol class="ol_setting"><a style="border-top: none;border-radius: 6.5px 6.5px 0px 0px;" class="a_setting" href="/orders">سبد خرید</a></ol>
                 <ol class="ol_setting"><a style="border-top: none;border-radius: 6.5px 6.5px 0px 0px;" class="a_setting" href="/logout">خروج</a></ol>
             {% endif %}
             <ol class="ol_setting"><a style="border-bottom: none;border-radius: 0px 0px 6.5px 6.5px;" class="a_setting" href="/call_us">تماس با ما</a></ol>
-        </li></header>
-        <div id="div">
-            <img style="margin-top: 50px;" id="div_img" src="{{item.image_address}}">
+        </li>
+        </header>
+    <div id="div_2">
+        <img style="margin-top: 50px;" id="div_img_2" src="{{item.image_address}}">
+        <div id="div_table">
             <p id="div_p">{{item.name}}</p>
             <p id="div_p2">قیمت : {{item.price}}</p>
             <p id="div_p3">تعداد موجود : {{item.number}}</p>
@@ -552,6 +556,42 @@
                 {% endif %}
             {% endif %}
         </div>
+    </div>    
+    <p id="item_relations">محصولات مرتبط</p>
+    <div id="div">
+        {% for itemm in items %}
+            {% if itemm.number!=0 %}
+                {% if itemm.number==item_type %}
+                    <a href="/item-shower/{{itemm.name}}" class="div_div">
+                        <img class="div_img" src="{{itemm.image_address}}">
+                        <p class="div_name">{{itemm.name}}</p>
+                        <p class="div_number">تعداد موجود : {{itemm.number}} </p>
+                        <p class="div_price">قیمت : {{itemm.price}} تومان</p>
+                    </a>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+        {% for itemm in items %}
+            {% if itemm.number!=0 %}
+                <a href="/item-shower/{{itemm.name}}" class="div_div">
+                    <img class="div_img" src="{{itemm.image_address}}">
+                    <p class="div_name">{{itemm.name}}</p>
+                    <p class="div_number">تعداد موجود : {{itemm.number}} </p>
+                    <p class="div_price">قیمت : {{itemm.price}} تومان</p>
+                </a>
+            {% endif %}
+        {% endfor %}
+        {% for itemm in items %}
+            {% if itemm.number==0 %}
+                <a href="/item-shower/{{itemm.name}}" class="div_div">
+                    <img class="div_img" src="{{itemm.image_address}}">
+                    <p class="div_name">{{itemm.name}}</p>
+                    <p class="div_number">تعداد موجود : {{itemm.number}} </p>
+                    <p class="div_price">قیمت : {{itemm.price}} تومان</p>
+                </a>
+            {% endif %}
+        {% endfor %}
+    </div>
     <script>
         let page_width = window.innerWidth;
         if (page_width<247){

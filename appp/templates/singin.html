@@ -23,18 +23,25 @@
         margin-top: 150px;
         background-color: #8e7dbe27;
     }
+    #li_arrow{
+        z-index: 20;
+    }
+    #li_setting{
+        z-index: 20;
+    }
 
 /* novin icon css */
 
-header#header_redirect{
-        background-color: #f4f8d38a;
-        position: absolute;    
+    header#header_redirect{
+        background-color: #fdffe9;
+        position: fixed;  
         top: 0;
         right: 0;
         left: 0;
         width: 100%;
         box-shadow: 3px 3px 10px rgb(122, 122, 122);
     }
+
     div#div_redirect{
         float: right;
         display: block;
@@ -237,20 +244,41 @@ header#header_redirect{
         font-size: 20px;
         border: 4px solid #a6d6d6;
         height: 50px;
-        width: 300px;
+        box-sizing: border-box;
         border-radius: 10px;
         text-align: center;
+        color: #8e7dbe;
         background-color: #f4f8d3;
+        padding: 0px 17px;
+        margin-top: 10px;
     }
     #password{
+        color: #8e7dbe;
+        box-sizing: border-box;
         font-size: 20px;
         border: 4px solid #a6d6d6;
         height: 50px;
-        width: 300px;
+        padding: 0px 17px;
         border-radius: 10px;
         text-align: center;
-        margin-top: 5px;
+        margin-top: 10px;
         background-color: #f4f8d3;
+    }
+    @media (min-width: 800px){
+        #username{
+            font-size: 30px !important;
+            width: 305px;
+        }
+        #password{
+            font-size: 30px !important;
+            width: 305px;
+        }
+        #submit{
+            font-size: 30px !important;
+        }
+        #login{
+            font-size: 30px !important;
+        }
     }
     #submit{
         font-size: 25px;
@@ -290,6 +318,7 @@ header#header_redirect{
         font-size: 40px;
         margin-right: 97px;
         display: block;
+        margin-top: 150px;
         width: 200px;
         color: #ff7a97;
     }
@@ -431,7 +460,7 @@ header#header_redirect{
                 <ol class="ol_setting"><a style="border-top: none;border-radius: 6.5px 6.5px 0px 0px;" class="a_setting" href="/singin">ثبت نام</a></ol>
                 <ol class="ol_setting"><a class="a_setting" href="/login">ورود</a></ol>
             {% else %}
-                <ol class="ol_setting"><a style="border-top: none;border-radius: 6.5px 6.5px 0px 0px;" class="a_setting" href="/ptofile">{{username}}</a></ol>
+                <ol class="ol_setting"><a style="border-top: none;border-radius: 6.5px 6.5px 0px 0px;" class="a_setting" href="#">{{username}}</a></ol>
                 <ol class="ol_setting"><a style="border-top: none;border-radius: 6.5px 6.5px 0px 0px;" class="a_setting" href="/orders">سبد خرید</a></ol>
                 <ol class="ol_setting"><a style="border-top: none;border-radius: 6.5px 6.5px 0px 0px;" class="a_setting" href="/logout">خروج</a></ol>
             {% endif %}

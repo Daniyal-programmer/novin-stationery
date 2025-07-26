@@ -30,11 +30,17 @@
         user-select: none;
         direction: rtl;
     }
+    #li_arrow{
+        z-index: 20;
+    }
+    #li_setting{
+        z-index: 20;
+    }
 
 /* novin icon css */
 
     header#header_redirect{
-        background-color: #f4f8d38a;
+        background-color: #fdffe9;
         position: fixed;    
         top: 0;
         right: 0;
@@ -399,7 +405,7 @@
                 <ol class="ol_setting"><a style="border-top: none;border-radius: 6.5px 6.5px 0px 0px;" class="a_setting" href="/singin">ثبت نام</a></ol>
                 <ol class="ol_setting"><a class="a_setting" href="/login">ورود</a></ol>
             {% else %}
-                <ol class="ol_setting"><a style="border-top: none;border-radius: 6.5px 6.5px 0px 0px;" class="a_setting" href="/ptofile">{{user__name}}</a></ol>
+                <ol class="ol_setting"><a style="border-top: none;border-radius: 6.5px 6.5px 0px 0px;" class="a_setting" href="#">{{user__name}}</a></ol>
                 <ol class="ol_setting"><a style="border-top: none;border-radius: 6.5px 6.5px 0px 0px;" class="a_setting" href="/orders">سبد خرید</a></ol>
                 <ol class="ol_setting"><a style="border-top: none;border-radius: 6.5px 6.5px 0px 0px;" class="a_setting" href="/logout">خروج</a></ol>
             {% endif %}

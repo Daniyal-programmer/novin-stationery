@@ -375,16 +375,17 @@ def item(string):
 
 @app.route('/item-shower/<string>',methods=['GET','POST'])
 def item_shower(string):
+    items = Items.query.all()
     item = Items.query.filter(Items.name==string).first_or_404()
     if session.get('username'):
         user_name=session.get('username')
         session['itemname'] = string
         if item.number==0:
-            return render_template('item_shower.html',item=item,username=user_name,item_num='False')
+            return render_template('item_shower.html',item=item,username=user_name,item_num='False',items=items,item_type=item.type)
         else:
-            return render_template('item_shower.html',item=item,username=user_name,item_num='True')
+            return render_template('item_shower.html',item=item,username=user_name,item_num='True',items=items,item_type=item.type)
     else:
-        return render_template('item_shower.html',item=item,username='False')
+        return render_template('item_shower.html',item=item,username='False',items=items,item_type=item.type)
 
 @app.route('/add-order')
 def add__order():
@@ -392,7 +393,7 @@ def add__order():
     user=User.query.filter(User.username==user_name).first_or_404()
     item_name=str(session.get('itemname'))
     item=Items.query.filter(Items.name==item_name).first_or_404()
-    return render_template('add_order.html',item_name=item.name,username=user_name,user_name=user.username,num='True')
+    return render_template('add_order.html',item_name=item.name,item_num=item.number,username=user_name,user_name=user.username,num='True')
 
 @app.route('/add_order',methods=['GET','POST'])
 def add_order():
@@ -404,7 +405,7 @@ def add_order():
     item=Items.query.filter(Items.name==item_name).first_or_404()
     item__name=item.name
     if (item_number) > int(item.number):
-        return render_template('add_order.html',item_name=item__name,user_name=user__name,num='False')
+        return render_template('add_order.html',item_num=item.number,item_name=item__name,user_name=user__name,num='False')
     else:
         item_price=item.price
         order=Orders(item_name=item__name,item_price=item_price,number_of_item_want=item_number,time=time.time())
@@ -422,21 +423,28 @@ def orders():
     user=User.query.filter(User.username==user_name).first_or_404()
     orders=Orders.query.filter(Orders.user_id==user.user_id).all()
     all_price=0
+    items_names = []
+    items_images = {}
     for order in orders:
         order_price=order.item_price*order.number_of_item_want
         all_price=all_price+order_price
+    for order in orders:
+        items_names.append(order.item_name)
+    for i in items_names:
+        item = Items.query.filter(Items.name==i).first_or_404()
+        items_images[item.name] = item.image_address
     if user.cantact_bool!=False:
         try:
             Orders.query.filter(Orders.user_id==user.user_id).first_or_404()
-            return render_template('orders.html',all_price=all_price,orders=orders,list=item_address_list,username=user_name,cantact=False,peyk_price='حضوری',order='True')
+            return render_template('orders.html',all_price=all_price,orders=orders,list=item_address_list,username=user_name,cantact=False,peyk_price='حضوری',order='True',items_images=items_images)
         except:
-            return render_template('orders.html',all_price=all_price,orders=orders,list=item_address_list,username=user_name,cantact=False,peyk_price='حضوری',order='False')
+            return render_template('orders.html',all_price=all_price,orders=orders,list=item_address_list,username=user_name,cantact=False,peyk_price='حضوری',order='False',items_images=items_images)
     else:
         try:
             Orders.query.filter(Orders.user_id==user.user_id).first()==''
-            return render_template('orders.html',all_price=all_price,orders=orders,list=item_address_list,username=user_name,cantact=True,peyk_price='حضوری',order='True')
+            return render_template('orders.html',all_price=all_price,orders=orders,list=item_address_list,username=user_name,cantact=True,peyk_price='حضوری',order='True',items_images=items_images)
         except:
-            return render_template('orders.html',all_price=all_price,orders=orders,list=item_address_list,username=user_name,cantact=True,peyk_price='حضوری',order='False')
+            return render_template('orders.html',all_price=all_price,orders=orders,list=item_address_list,username=user_name,cantact=True,peyk_price='حضوری',order='False',items_images=items_images)
 
 @app.route('/delete-order/<order_id>')
 def delete_order(order_id):

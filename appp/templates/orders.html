@@ -30,6 +30,7 @@
         }
     }
     body{
+        margin-bottom: 80px !important;
         position: relative;
         margin: 0;
         margin-top: 147.333px !important;
@@ -39,6 +40,32 @@
         user-select: none;
         direction: rtl;
         background-color: #8e7dbe27;
+    }
+    @media (max-width:851px){
+        body{
+            margin-bottom: 144px !important;
+        }
+    }
+    @media (max-width:716px){
+        body{
+            margin-bottom: 148px !important;
+        }
+    }
+    @media (max-width:485px){
+        body{
+            margin-bottom: 218px !important;
+        }
+    }
+    @media (max-width:350px){
+        body{
+            margin-bottom: 244px !important;
+        }
+    }
+    #li_arrow{
+        z-index: 20;
+    }
+    #li_setting{
+        z-index: 20;
     }
 
 /* novin icon css */
@@ -135,6 +162,7 @@
         margin: 0;
         padding: 0;
         display: block;
+        z-index: 20;
     }
     a.a_setting{
         text-decoration: none;
@@ -232,6 +260,7 @@
         }
     }
     .div_div{
+        position: relative;
         background-color: #f4f8d38a;
         margin: 20px;
         border: 3px solid #a6d6d6;
@@ -241,7 +270,6 @@
         text-decoration: none;
         color: #8e7dbe;
         box-shadow: 3px 3px 10px rgb(122, 122, 122);
-        position: relative;
     }
     .div_div:hover{
         animation-name: div;
@@ -249,11 +277,12 @@
         animation-fill-mode: forwards;
     }
     .div_img{
-        padding: 10%;
-        padding-top: 10px;
-        padding-bottom: 10px;
+        margin: 10%;
+        margin-top: 10px;
+        margin-bottom: 20px;
         width: 200px;
-        border-bottom: 2px solid #f7cfd8;
+        border-radius: 10px;
+        border: 2px dashed #a6d6d6;
     }
     .div_name{
         text-align: center;
@@ -394,11 +423,11 @@
         font-size: 20px;
         color: #f7cfd8;
         background-color: #8e7dbe;
-        margin-top: 1px;
         position: fixed;
         top: 98.333px;
         right: 0;
         padding: 10px 0;
+        z-index: 10;
     }
     #order_pay_btn{
         font-family: Novin_font;
@@ -412,18 +441,17 @@
         border-left: none;
         background-color: #f7cfd8;
         color: #8e7dbe;
-        margin-top: 1px;
         font-size: 20px;
         position: fixed;
         padding: 10px 0;
         right: 33.333333333333%;
         top: 98.333px;
+        z-index: 10;
     }
     #order_sent_btn{
         border: 2px solid #a6d6d6;
         background-color: #f7cfd8;
         color: #8e7dbe;
-        margin-top: 1px;
         font-family: Novin_font;
         font-weight: bold;
         display: block;
@@ -435,6 +463,7 @@
         position: fixed;
         top: 98.333px;
         left: 0;
+        z-index: 10;
     }
     .div_order{
         display: none;
@@ -469,13 +498,37 @@
             margin-top: 7.5px;
             margin-bottom: 7.5px;
         }
+        #order_dont_pay_btn{
+            top: 93px;
+        }
+        #order_pay_btn{
+            top: 93px;
+        }
+        #order_sent_btn{
+            top: 93px;
+        }
     }
     #img_img{
+        position: absolute;
         width: 30px;
         border-radius: 13px;
         padding: 2px;
+        right: 210px;
+        bottom: -30px;
         background-color: #a6d6d6;
         border: 2px solid #8e7dbe;
+    }
+    @media (max-width:400px){
+        #img_img{
+            position: absolute;
+            width: 40px;
+            border-radius: 13px;
+            padding: 2px;
+            right: 212px;
+            bottom: -40px;
+            background-color: #a6d6d6;
+            border: 2px solid #8e7dbe;
+        }
     }
     @media (max-width:345px){
         img#img_arrow{
@@ -505,6 +558,15 @@
         }
         li#li_arrow{
             width: 180px ;
+        }
+        #order_dont_pay_btn{
+            top: 86px;
+        }
+        #order_pay_btn{
+            top: 86px;
+        }
+        #order_sent_btn{
+            top: 86px ;
         }
     }
     .inp:focus{all: unset;}
@@ -593,7 +655,7 @@
                 <ol class="ol_setting"><a style="border-top: none;border-radius: 6.5px 6.5px 0px 0px;" class="a_setting" href="/singin">ثبت نام</a></ol>
                 <ol class="ol_setting"><a class="a_setting" href="/login">ورود</a></ol>
             {% else %}
-                <ol class="ol_setting"><a style="border-top: none;border-radius: 6.5px 6.5px 0px 0px;" class="a_setting" href="/ptofile">{{username}}</a></ol>
+                <ol class="ol_setting"><a  style="border-top: none;border-radius: 6.5px 6.5px 0px 0px;background-color: #fac9d4;" class="a_setting" href="#">{{username}}</a></ol>
                 <ol class="ol_setting"><a style="border-top: none;border-radius: 6.5px 6.5px 0px 0px;" class="a_setting" href="/orders">سبد خرید</a></ol>
                 <ol class="ol_setting"><a style="border-top: none;border-radius: 6.5px 6.5px 0px 0px;" class="a_setting" href="/logout">خروج</a></ol>
             {% endif %}
@@ -605,13 +667,13 @@
         {% for order in orders %}
             {% if order.pay=='False' %}
                 {% if order.sent=='False' %}
-                    
                     <div class="div_div">
                         <a href="/item-shower/{{order.item_name}}" style="text-decoration: none;">
+                            <img class="div_img" src="{{ items_images[order.item_name] }}">
                             <p class="div_name">{{order.item_name}}</p>
                             <p class="div_number">تعداد سفارش : {{order.number_of_item_want}}</p>
                             <p class="div_price">قیمت :{{order.item_price*order.number_of_item_want}}  تومان</p>
-                            <a style="position: absolute;right: 20px;bottom: 4.5px;" href="/delete-order/{{order.id}}"><img id="img_img" src="../files/delete.png"></a>
+                            <a style="position: absolute;right: 20px;bottom: 4.5px;" href="/delete-order/{{order.id}}"><img id="img_img" src="../static/delete.png"></a>
                         </a>
                     </div>
                 {% endif %}
@@ -633,6 +695,7 @@
                 {% if order.pay=='True' %}
                     {% if order.sent=='False' %}
                         <a href="/item-shower/{{order.item_name}}" class="div_div">
+                            <img class="div_img" src="{{ items_images[order.item_name] }}">
                             <p class="div_name">{{order.item_name}}</p>
                             <p class="div_number">تعداد سفارش : {{order.number_of_item_want}}</p>
                             <p class="div_price">قیمت : {{order.item_price*order.number_of_item_want}} تومان</p>
@@ -649,6 +712,7 @@
                 {% if order.sent=='True' %}
                     {% if order.pay=='True' %}
                         <a href="/item-shower/{{order.item_name}}" class="div_div">
+                            <img class="div_img" src="{{ items_images[order.item_name] }}">
                             <p class="div_name">{{order.item_name}}</p>
                             <p class="div_number">تعداد سفارش : {{order.number_of_item_want}}</p>
                             <p class="div_price">قیمت : {{order.item_price*order.number_of_item_want}} تومان</p>
