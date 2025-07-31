@@ -214,7 +214,7 @@ def admin_login():
     if request.method == 'POST':
         username=request.form['username']
         password=request.form['password']
-        if username == 'Mitra' and password == 'Mitra.1369':
+        if username == 'Daniyal' and password == 'Daniyal.1389':
             session['admin_bool'] = 'True'
             return redirect('/admin-page')
         else:
