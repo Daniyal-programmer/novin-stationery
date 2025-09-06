@@ -1,2 +1,4 @@
 # novin-stationery
-this website is an coding website and it has some little problems in its backend and frontend
+this website is an coding website 
+its back_end codes by python,flask,mysql
+its front_end codes by html,css,js
