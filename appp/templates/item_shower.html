@@ -7,6 +7,15 @@
     <title>Novin</title>
 </head>
 <style>
+    ::-webkit-scrollbar{
+        background-color: #f4f8d3;
+        width: 6.5px;
+    }
+    ::-webkit-scrollbar-thumb{
+        background-color: #8e7dbe;
+        width: 8.5px;
+        border-radius: 100px 10px 10px 100px  ;
+    }
     @keyframes footer_novin {
         from{
             box-shadow: 3px 3px 5px #8e7dbe;
@@ -41,7 +50,7 @@
     }
     body{
         position: relative;
-        background-color: #ffffff;
+        background-color: #8e7dbe27;
         margin: 0;
         margin-top: 97.333px;
         padding: 0;
@@ -202,13 +211,19 @@
         text-align: center;
         color: #8e7dbe;
         display: block;
-        padding: 12.5px 0px;
+        padding: 8px 0px;
         border-bottom: 2px solid #a6d6d6;
-        font-size: 30px;
+        font-size: 20px;
     }
     @media (max-width: 390px){
         button#btn_arrow{
             margin-right: 5px;
+        }
+        #search_button{
+            top: 93px;
+        }
+        #form_search{
+            top: 93px;
         }
         button#btn_setting{
             margin: 5px;
@@ -269,7 +284,7 @@
             justify-content: center;
         }
         #div_img_2{
-            margin-top: 20px !important;
+            margin-top: 60px !important;
             margin-right: 0px !important;
         }
         #div_table{
@@ -353,6 +368,12 @@
         img#img_arrow{
             width: 40px;
         }
+        #search_button{
+            top: 86px;
+        }
+        #form_search{
+            top: 86px;
+        }
         img#img_setting{
             width: 40px;
         }
@@ -405,8 +426,9 @@
         min-width: 309.208px;
         border-radius: 10px;
         border: 3px dashed #a6d6d6;
+        background-color: #f4f8d38a;
         padding: 10px;
-        margin-top: 50px;
+        margin-top: 60px;
     }
     @media (max-width:197px){
         .div_img{
@@ -456,15 +478,17 @@
         justify-content: center;
     }
     .div_div{
-        background-color: #f4f8d38a;
         margin: 20px;
         border: 3px solid #a6d6d6;
+        background-color: #f4f8d38a;
         border-radius: 20px;
         width: 250px;
-        display: block;
+        display: flex;
         text-decoration: none;
         color: #8e7dbe;
-        box-shadow: 3px 3px 10px rgb(122, 122, 122);
+        box-shadow: 2px 2px 5px rgb(122, 122, 122);
+        justify-content: center;
+        flex-direction: column;
     }
     .div_div:hover{
         animation-name: div;
@@ -644,6 +668,59 @@
             display: none;
         }
     }
+    #search_button{
+        all: unset;
+        cursor: pointer;
+        border-radius: 100px;
+        position: fixed;
+        right: 1.33955%;
+        top: 100px;
+    }
+    #form_search{
+        width: fit-content;
+        display: none;
+        flex-direction: row-reverse;
+        border: 2px solid #a6d6d6;
+        background-color: #f7cfd8;
+        border-radius: 27px;
+        position: fixed;
+        top: 100px;
+        right: 1.33955%;
+    }
+    #search_input{
+        all: unset;
+        padding: 5px;
+        color: #8e7dbe;
+        margin: 0;
+        font-size: 20px;
+        font-family: Novin_font;
+        font-weight: 550;
+        text-align: end; 
+        margin-left: 5px;
+    }
+    #search_input::placeholder{
+        all: unset;
+        font-size: 20px;
+        color: #8e7dbe;
+        font-family: Novin_font;
+        font-weight: 550;
+        text-align: end;
+    }
+    .search_btn{
+        all: unset;
+        padding: 3px;
+        border-radius: 100px;
+        background-color: #f4f8d3;
+        width: 40px;
+        margin: 3px;
+        margin-right: 0;
+    }
+    #img_setting{
+        width: 50px;
+    }
+    a.a_arrow:hover{
+        background-color: #f7cfd8;
+    }
 </style>
 <body>
     <header id="header_redirect">
@@ -681,8 +758,15 @@
             <ol class="ol_setting"><a style="border-bottom: none;border-radius: 0px 0px 6.5px 6.5px;" class="a_setting" href="/call_us">تماس با ما</a></ol>
         </li>
         </header>
+    <button id="search_button"><img id="search_image" class="search_btn" src="../static/search.svg" alt="search"></button>
+    <form id="form_search" autocomplete="off" action="/item_search" method="POST">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <input id="val" type="hidden" name="url">
+        <input id="search_input" type="text" placeholder="جستجو" name="inp">
+        <input style="background-color: #a6d6d6;cursor: pointer;" class="search_btn" type="image" src="../static/cross.svg">
+    </form>
     <div id="div_2">
-        <img style="margin-top: 50px;" id="div_img_2" src="{{item.image_address}}">
+        <img style="margin-top: 60px;" id="div_img_2" src="{{item.image_address}}">
         <div id="div_table">
             <p id="div_p">{{item.name}}</p>
             <p id="div_p2">قیمت : {{item.price}}</p>
@@ -763,10 +847,30 @@
         </div>
     </footer>
     <script>
-        let page_width = window.innerWidth;
-        if (page_width<247){
-            document.getElementById('p_redirect').innerHTML='N';
+        const opener = ()=>{
+            document.getElementById('search_button').addEventListener('click', ()=>{
+                document.getElementById('search_button').style.display = 'none';
+                document.getElementById('form_search').style.display = 'flex';
+                document.getElementById('search_input').focus();
+            })
         }
+
+        const closer =()=>{
+            document.getElementById('form_search').addEventListener('focusout', ()=>{
+                document.getElementById('search_button').style.display = 'flex';
+                document.getElementById('form_search').style.display = 'none';
+            })
+        }
+        
+        const set = ()=>{
+            const u_r_l = window.location.href;
+            document.getElementById('val').setAttribute('value',u_r_l);
+        }
+
+        set()
+        
+        closer()
+        opener()
     </script>
 </body>
 </html>

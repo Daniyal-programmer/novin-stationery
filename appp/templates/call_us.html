@@ -19,6 +19,21 @@
         font-family: Novin_font;
         src: url('../static/font_persian.ttf');
     }
+    ::-webkit-scrollbar{
+        background-color: #f4f8d3;
+        width: 6.5px;
+    }
+    ::-webkit-scrollbar-thumb{
+        background-color: #8e7dbe;
+        width: 8.5px;
+        border-radius: 100px 10px 10px 100px  ;
+    }
+    #img_setting{
+        width: 50px;
+    }
+    a.a_arrow:hover{
+        background-color: #f7cfd8;
+    }
     @keyframes phone {
         from{
         color: #f4f8d3;
@@ -38,9 +53,6 @@
         user-select: none;
         direction: rtl;
         background-color: #8e7dbe27;
-        display: flex;
-        align-content: center;
-        justify-content: center;
         position: relative;
     }
     #li_arrow{
@@ -201,9 +213,9 @@
         text-align: center;
         color: #8e7dbe;
         display: block;
-        padding: 12.5px 0px;
+        padding: 8px 0px;
         border-bottom: 2px solid #a6d6d6;
-        font-size: 30px;
+        font-size: 20px;
     }
     
     @media (max-width: 390px){
@@ -261,7 +273,10 @@
         padding: 10px;
         border-radius: 10px;
         height: 127px;
-        margin-top: 100px;
+        position: relative;
+        top: 70px;
+        width: fit-content;
+        margin: auto;
     }
     #phone_p{
         color: #f4f8d3;
@@ -381,14 +396,24 @@
     div#footer{
         background-color: #a6d6d6;
         border-top: 2px dotted #8e7dbe;
-        position: relative;
+        position: absolute;
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
-        bottom: 0;
         right: 0;
         left: 0;
+        margin-top: 308px;
         border-bottom: 4px dotted #f7cfd8;
+    }
+    @media (max-width:534px) {
+        div#footer{
+            margin-top: 440px;
+        }
+    }
+    @media (max-width:387px) {
+        div#footer{
+            margin-top: 586px;
+        }
     }
     p.footer_p{
         font-size: 20px;

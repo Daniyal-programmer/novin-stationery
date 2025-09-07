@@ -10,7 +10,9 @@ app.secret_key='fkmlbvkmdlbkmfglknmbportsyhj-ezrsfghbwA$45t46355y136518355176585
 app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+mysqlconnector://root:@127.0.0.1/flask"
 db = SQLAlchemy(app)
 csrf = CSRFProtect(app)
+
 #----mysql----
+
 class User(db.Model):
     user_id= db.Column(db.Integer,primary_key=True)
     username= db.Column(db.String(20),nullable=False,unique=True)
@@ -210,7 +212,10 @@ def logout():
 @app.route('/admin-login',methods=['GET','POST'])
 def admin_login():
     if request.method == 'GET':
-        return render_template('admin_login.html')
+        if session.get('admin_bool') == 'True':
+            return redirect('/admin-page')
+        else:
+            return render_template('admin_login.html')
     if request.method == 'POST':
         username=request.form['username']
         password=request.form['password']
@@ -372,6 +377,62 @@ def item(string):
             items = Items.query.filter(Items.type=='bag')
             return render_template('item.html',items=items,type='True',user__name='False')
 
+@app.route('/item_search' , methods = ['POST'])
+def item_():
+    if request.method == 'POST':
+        all_items = Items.query.all()
+        items_selected = []
+        all_items_names = []
+        all_items_description = []
+        items_names_selected = []
+        items_description_selected = []
+        items_selected_filtered = []
+        inp_bool = True
+        for item in all_items:
+            all_items_names.append(item.name)
+            all_items_description.append(item.description)
+        inp = request.form['inp']
+        if inp == '':
+            inp_bool=False
+        for i in all_items_names:
+            if inp in i:
+                items_names_selected.append(i)
+
+        for d in all_items_description:
+            if inp in d:
+                items_description_selected.append(d)
+                
+
+        for name in items_names_selected:
+            item_selected = Items.query.filter(Items.name==name).first_or_404()
+            items_selected.append(item_selected)
+        
+        for des in items_description_selected:
+            item_selected = Items.query.filter(Items.description==des).first_or_404()
+            items_selected.append(item_selected)
+        
+        for item in items_selected:
+            if item not in items_selected_filtered:
+                items_selected_filtered.append(item)
+        
+        if len(items_names_selected)==0:
+            if len(items_description_selected)==0:
+                inp_bool=False
+
+        if inp_bool==True:
+            if session.get('username'):
+                user_num=str(session.get('username'))
+                return render_template('item.html',items=items_selected_filtered,type='True',user__name=user_num,ru='False')
+            else:
+                return render_template('item.html',items=items_selected_filtered,type='True',user__name='False',ru='false')
+        
+
+        if inp_bool==False:
+            url = request.form['url']
+            if 'item_search' in url:
+                return redirect('/')
+            else:
+                return redirect(url)
 
 @app.route('/item-shower/<string>',methods=['GET','POST'])
 def item_shower(string):
@@ -574,4 +635,4 @@ def verify():
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
-    app.run(debug=True , port = 5000)
+    app.run(debug=False , port = 5000)

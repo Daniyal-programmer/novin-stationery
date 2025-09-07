@@ -7,6 +7,15 @@
     <link rel="icon" type="image/x-icon" href="../static/pen.svg">
 </head>
 <style>
+    ::-webkit-scrollbar{
+        background-color: #f4f8d3;
+        width: 6.5px;
+    }
+    ::-webkit-scrollbar-thumb{
+        background-color: #8e7dbe;
+        width: 8.5px;
+        border-radius: 100px 10px 10px 100px  ;
+    }
     @keyframes footer_novin {
         from{
             box-shadow: 3px 3px 5px #8e7dbe;
@@ -38,7 +47,7 @@
         }
     }
     body{
-        margin-bottom: 80px !important;
+        margin-bottom: 70px !important;
         position: relative;
         margin: 0;
         margin-top: 147.333px !important;
@@ -51,22 +60,22 @@
     }
     @media (max-width:851px){
         body{
-            margin-bottom: 144px !important;
+            margin-bottom: 134px !important;
         }
     }
     @media (max-width:716px){
         body{
-            margin-bottom: 148px !important;
+            margin-bottom: 139px !important;
         }
     }
     @media (max-width:485px){
         body{
-            margin-bottom: 218px !important;
+            margin-bottom: 211px !important;
         }
     }
     @media (max-width:350px){
         body{
-            margin-bottom: 244px !important;
+            margin-bottom: 227px !important;
         }
     }
     #li_arrow{
@@ -229,9 +238,9 @@
         text-align: center;
         color: #8e7dbe;
         display: block;
-        padding: 12.5px 0px;
+        padding: 8px 0px;
         border-bottom: 2px solid #a6d6d6;
-        font-size: 30px;
+        font-size: 20px;
     }
 
 
@@ -269,16 +278,18 @@
         }
     }
     .div_div{
-        position: relative;
-        background-color: #f4f8d38a;
         margin: 20px;
         border: 3px solid #a6d6d6;
+        background-color: #f4f8d38a;
         border-radius: 20px;
         width: 250px;
-        display: block;
+        display: flex;
         text-decoration: none;
         color: #8e7dbe;
-        box-shadow: 3px 3px 10px rgb(122, 122, 122);
+        box-shadow: 2px 2px 5px rgb(122, 122, 122);
+        justify-content: center;
+        flex-direction: column;
+        position: relative;
     }
     .div_div:hover{
         animation-name: div;
@@ -292,6 +303,12 @@
         width: 200px;
         border-radius: 10px;
         border: 2px dashed #a6d6d6;
+    }
+    #img_setting{
+        width: 50px;
+    }
+    a.a_arrow:hover{
+        background-color: #f7cfd8;
     }
     .div_name{
         text-align: center;
@@ -436,7 +453,7 @@
         top: 98.333px;
         right: 0;
         padding: 10px 0;
-        z-index: 10;
+        z-index: 2;
     }
     #order_pay_btn{
         font-family: Novin_font;
@@ -455,7 +472,7 @@
         padding: 10px 0;
         right: 33.333333333333%;
         top: 98.333px;
-        z-index: 10;
+        z-index: 2;
     }
     #order_sent_btn{
         border: 2px solid #a6d6d6;
@@ -472,16 +489,16 @@
         position: fixed;
         top: 98.333px;
         left: 0;
-        z-index: 10;
+        z-index: 2;
     }
     .div_order{
         display: none;
     }
     #order_dont_pay{
-        display: block;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        margin-bottom: 10px;
     }
     @media (max-width:467px){
     #order_dont_pay_btn{

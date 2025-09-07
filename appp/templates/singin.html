@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <style>
-    
     @keyframes footer_novin {
         from{
             box-shadow: 3px 3px 5px #8e7dbe;
@@ -16,9 +15,24 @@
             box-shadow: none;
         }
     }
+    ::-webkit-scrollbar{
+        background-color: #f4f8d3;
+        width: 6.5px;
+    }
+    ::-webkit-scrollbar-thumb{
+        background-color: #8e7dbe;
+        width: 8.5px;
+        border-radius: 100px 10px 10px 100px  ;
+    }
     @font-face {
         font-family: Novin_font;
         src: url('../static/font_persian.ttf');
+    }
+    #img_setting{
+        width: 50px;
+    }
+    a.a_arrow:hover{
+        background-color: #f7cfd8;
     }
     body{
         position: relative;
@@ -190,9 +204,9 @@
         text-align: center;
         color: #8e7dbe;
         display: block;
-        padding: 12.5px 0px;
+        padding: 8px 0px;
         border-bottom: 2px solid #a6d6d6;
-        font-size: 30px;
+        font-size: 20px;
     }
 
 
@@ -443,14 +457,24 @@
     div#footer{
         background-color: #a6d6d6;
         border-top: 2px dotted #8e7dbe;
-        position: relative;
+        position: absolute;
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
-        bottom: 0;
         right: 0;
         left: 0;
+        margin-top: 308px;
         border-bottom: 4px dotted #f7cfd8;
+    }
+    @media (max-width:534px) {
+        div#footer{
+            margin-top: 440px;
+        }
+    }
+    @media (max-width:387px) {
+        div#footer{
+            margin-top: 586px;
+        }
     }
     p.footer_p{
         font-size: 20px;
